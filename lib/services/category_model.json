@@ -1,74 +1,75 @@
 {
     "categories": [
         {
-            "name": "Women Dress",
+            "name": "Antique Furniture",
             "subcategory": [
-                "Wedding & Event",
-                "Tops & Sets",
-                "Watches"
+                "Wooden Cabinets",
+                "Victorian Sofas",
+                "Rocking Chairs"
             ]
         },
         {
-            "name": "Men Clothing & Fashion",
+            "name": "Vintage Art & Paintings",
             "subcategory": [
-                "Outwear & Jackets",
-                "Formal Dress",
-                "Accessories"
+                "Oil Paintings",
+                "Watercolor Art",
+                "Canvas Portraits"
             ]
         },
         {
-            "name": "Computer & Accessories",
+            "name": "Traditional Pottery",
             "subcategory": [
-                "Laptop",
-                "Gaming PC",
-                "Official Equipment"
+                "Clay Pots",
+                "Painted Vases",
+                "Ceramic Bowls"
             ]
         },
         {
-            "name": "Automobile",
+            "name": "Historical Books & Manuscripts",
             "subcategory": [
-                "Cars",
-                "Bikes"
+                "Old Novels",
+                "Handwritten Journals",
+                "Religious Texts"
             ]
         },
         {
-            "name": "Kids & Toys",
+            "name": "Classic Fashion & Textiles",
             "subcategory": [
-                "Shoes & Bags",
-                "Baby Clothing",
-                "Girls Toys"
+                "Handwoven Shawls",
+                "Silk Scarves",
+                "Vintage Dresses"
             ]
         },
         {
-            "name": "Sports",
+            "name": "Antique Jewelry",
             "subcategory": [
-                "Cycling",
-                "Sneakers",
-                "Swimming"
+                "Handcrafted Rings",
+                "Vintage Necklaces",
+                "Traditional Bracelets"
             ]
         },
         {
-            "name": "Jewelery",
+            "name": "Cultural Artifacts",
             "subcategory": [
-                "Necklace",
-                "Gold",
-                "Earing"
+                "Tribal Masks",
+                "Ancient Tools",
+                "Heritage Utensils"
             ]
         },
         {
-            "name": "Cellphone & Tab",
+            "name": "Wall Decor & Frames",
             "subcategory": [
-                "Smartphone",
-                "Tablets",
-                "Accessories"
+                "Wooden Frames",
+                "Tapestry Wall Art",
+                "Carved Mirrors"
             ]
         },
         {
-            "name": "Furniture",
+            "name": "Old Coins & Stamps",
             "subcategory": [
-                "Sofa",
-                "Bed",
-                "Home Textile"
+                "Copper Coins",
+                "Historical Currency",
+                "Postage Stamps"
             ]
         }
     ]

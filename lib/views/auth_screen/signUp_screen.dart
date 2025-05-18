@@ -1,8 +1,6 @@
 import 'package:emart_seller/const/colors.dart';
 import 'package:emart_seller/const/const.dart';
 import 'package:emart_seller/controllers/auth_controller.dart';
-import 'package:emart_seller/views/auth_screen/signUp_screen.dart';
-import 'package:emart_seller/views/home/home.dart';
 import 'package:emart_seller/views/widgets_common/customSized.dart';
 import 'package:emart_seller/views/widgets_common/custom_button.dart';
 import 'package:emart_seller/views/widgets_common/customtextField.dart';
@@ -10,15 +8,16 @@ import 'package:emart_seller/views/widgets_common/test_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'login_screen.dart';
 
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class SignupScreen extends StatelessWidget {
+  const SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(AuthController());
+    var nameController = TextEditingController();
     var passwordController = TextEditingController();
     var emailController = TextEditingController();
     return Scaffold(
@@ -59,40 +58,33 @@ class LoginScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(5),
                   child: Column(
                     children: [
+                      CustomTextField(title: "Name", hintText: 'name', controller: nameController),
                       CustomSized(),
                       CustomTextField(title: "Email", hintText: 'email@gamil.com', controller: emailController),
                       CustomSized(),
                       CustomTextField(title: "Password", hintText: 'password', controller: passwordController),
                       CustomSized(),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                        normalText(title: 'Login with biometric',color: purpleColor),
-                        IconButton(onPressed: (){
-                          controller.loginWithStoredCredentials(context);
-                        }, icon: Icon(Icons.fingerprint_outlined)),
-                      ],),
-                      CustomSized(),
                       Obx(
                           ()=> controller.isLoading.value == true ? Center(child: CupertinoActivityIndicator(),) : CustomButton(onTap: (){
-                          controller.login(email: emailController.text.trim(), password: passwordController.text.trim(), context: context);
+                          controller.signup(email: emailController.text.trim(), password: passwordController.text.trim(), context: context, name: nameController.text.trim());
                         }, title: "Login"),
                       ),
                       CustomSized(),
-                      GestureDetector(
-                        onTap: (){
-                          Get.to(()=> SignupScreen(),transition: Transition.cupertino);
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            smallText(title: 'Do not have an account ?',color: Colors.black),
-                            CustomSized(),
-                            smallText(title: 'Signup',color: purpleColor,textSize: 14.0),
-                          ],
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          smallText(
+                              title: 'Already have an account ?  ',
+                              color: purpleColor,
+                          ),
+                          InkWell(
+                              onTap: () {
+                                Get.to(()=> LoginScreen(),transition: Transition.cupertino);
+                              },
+                              child: smallText(
+                                  title: 'Login',color: purpleColor)),
+                        ],
                       ),
-                      CustomSized(),
                     ],
                   ),
                 ),
@@ -100,6 +92,7 @@ class LoginScreen extends StatelessWidget {
               CustomSized(height: 0.3,),
               Center(child: smallText(title: credit,color: white)),
               CustomSized(),
+
             ],
           ),
         ),
