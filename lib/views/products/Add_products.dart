@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:emart_seller/const/colors.dart';
 import 'package:emart_seller/const/const.dart';
 import 'package:emart_seller/controllers/product_controller.dart';
@@ -35,7 +33,6 @@ class AddProducts extends StatelessWidget {
                 ),
                 builder: (context) {
                   final ScrollController scrollController = ScrollController();
-
                   final textQuestions = [
                     "Condition of the item?",
                     "Approximate age?",
@@ -44,21 +41,13 @@ class AddProducts extends StatelessWidget {
                     "How should it be cared for?",
                     "Where was it originally made?",
                   ];
-
-                  final dropdownQuestion = {
-                    "Is it handmade or vintage?": ["Handmade", "Vintage", "Both"]
-                  };
-
+                  final dropdownQuestion = {"Is it handmade or vintage?": ["Handmade", "Vintage", "Both"]};
                   final yesNoQuestions = [
                     "Is it one of a kind or limited edition?",
                     "Any damage or wear?",
                     "What inspired you to sell this?",
                   ];
-
-                  final textControllers = Map.fromEntries(
-                    textQuestions.map((q) => MapEntry(q, TextEditingController())),
-                  );
-
+                  final textControllers = Map.fromEntries(textQuestions.map((q) => MapEntry(q, TextEditingController())),);
                   final dropdownSelections = <String, String?>{
                     for (var q in dropdownQuestion.keys) q: null
                   };
