@@ -27,6 +27,10 @@ class ProductController extends GetxController {
   var subCategoryValue = ''.obs;
   var selectedColorIndex = 0.obs;
   var isLoading = false.obs;
+  var handmadeOrVintage = ''.obs;
+  var uniqueness = ''.obs;
+  var limitedEdition = ''.obs;
+  var additionalNotes = ''.obs;
 
   @override
   void onInit() {
@@ -126,6 +130,8 @@ class ProductController extends GetxController {
     pImagesLinks.addAll(results);
     return imagesLinks;
   }
+
+
 
 
 
