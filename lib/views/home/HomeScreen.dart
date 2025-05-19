@@ -48,15 +48,17 @@ class HomeScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         DashBoardButton(title: 'Products',counts: data.length.toString(),imagePath: icProduct,),
-                        DashBoardButton(title: 'Orders',counts: '40',imagePath: icOrders,),
-                      ],
-                    ),
-                    CustomSized(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        DashBoardButton(title: 'Rating',counts: '4.5',imagePath: icRating,),
-                        DashBoardButton(title: 'Total',counts: '120',imagePath: icOrders,),
+                        StreamBuilder(
+                          stream: FireBaseServices.getOrders(),
+                          builder: (context, AsyncSnapshot<QuerySnapshot> snapshot,) {
+                            if(snapshot.connectionState == ConnectionState.waiting){
+                              return DashBoardButton(title: 'Orders',counts: '--/--/-',imagePath: icOrders,);
+                            }else{
+                              var data = snapshot.data!.docs;
+                              return DashBoardButton(title: 'Orders',counts: data.length.toString(),imagePath: icOrders,);
+                            }
+                          }
+                        ),
                       ],
                     ),
                     CustomSized(),
