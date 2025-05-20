@@ -13,12 +13,6 @@ class ProductDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          
-        },
-        child: Icon(Icons.add),
-      ),
       appBar: AppBar(
         backgroundColor: purpleColor,
       ),
@@ -37,13 +31,14 @@ class ProductDetailsScreen extends StatelessWidget {
                 isFastScrollingEnabled: true,
                 itemCount: data['p_images'].length,
                 itemBuilder: (context, index) {
+                  var images = data['p_images'][index];
                   return Container(
                     margin: EdgeInsets.all(5),
                     clipBehavior: Clip.antiAlias,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       image: DecorationImage(
-                          image: AssetImage(appLogo),
+                          image: NetworkImage(images),
                           fit: BoxFit.fill,
                           isAntiAlias: true),
                     ),
@@ -66,58 +61,10 @@ class ProductDetailsScreen extends StatelessWidget {
             CustomSized(),
             normalText(title: '${data['p_price']} \$', color: purpleColor),
             CustomSized(),
-            Row(
-              children: [
-                normalText(title: 'Category : ${data['p_category']}', color: purpleColor),
-                CustomSized(),
-                normalText(title: 'Subcategory : ${data['p_subcategory']}', color: purpleColor),
-              ],
-            ),
+            normalText(title: 'Category : ${data['p_category']}', color: purpleColor),
             CustomSized(),
-            Card(
-              color: white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Center(
-                child: Container(
-                    padding: EdgeInsets.all(8),
-                    width: MediaQuery.sizeOf(context).width * 1,
-                    height: MediaQuery.sizeOf(context).height * 0.06,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: white,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        smallText(title: 'Colors', color: textfieldGrey),
-                        CustomSized(),
-                        Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: List.generate(
-                                 data['p_colors'].length,
-                                    (index) {
-                                  return InkWell(
-                                    onTap: () {
-                                    },
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      margin: EdgeInsets.all(2),
-                                      height: 100,
-                                      width: 30,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: data['p_colors'][index]),
-                                      ));
-                                })),
-                      ],
-                    )),
-              ),
-            ),
+            normalText(title: 'Subcategory : ${data['p_subcategory']}', color: purpleColor),
+            CustomSized(),
             CustomSized(),
             Card(
               shape: RoundedRectangleBorder(
@@ -137,7 +84,7 @@ class ProductDetailsScreen extends StatelessWidget {
                         ),
                         CustomSized(),
                         smallText(
-                          title: data['65'],
+                          title: data['p_quantity'],
                           color: darkGrey,
                         ),
                       ],

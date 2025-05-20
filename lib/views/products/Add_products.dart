@@ -118,34 +118,7 @@ class AddProducts extends StatelessWidget {
                 ),
               ),
               CustomSized(),
-              smallText(title: 'Select Colors', color: darkGrey),
-              CustomSized(),
-              Obx(
-                    () => Wrap(
-                  direction: Axis.horizontal,
-                  children: List.generate(15, (index) {
-                    return InkWell(
-                      onTap: () {
-                        controller.selectedIndex(index);
-                      },
-                      child: Container(
-                        alignment: Alignment.center,
-                        margin: const EdgeInsets.all(2),
-                        height: 50,
-                        width: 50,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Vx.randomPrimaryColor,
-                        ),
-                        child: controller.selectedColorIndex.value == index
-                            ? const Icon(Icons.check_circle,
-                            color: white, size: 30)
-                            : null,
-                      ),
-                    );
-                  }),
-                ),
-              ),
+
             ],
           ),
         ),

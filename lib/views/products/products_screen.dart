@@ -103,7 +103,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                                                   break;
                                               }
                                             },
-                                              child: normalText(title: menuList[i],color: data[index]['featured_id']  == currentUser!.uid && i == 0 ?  green : darkGrey)),
+                                              child: normalText(title: menuList[i],color: data[index]['id_featured']  == currentUser!.uid && i == 0 ?  green : darkGrey)),
                                         ));
                                   }) ,
                                 ) ;
