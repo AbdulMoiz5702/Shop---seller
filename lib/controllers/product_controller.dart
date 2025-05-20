@@ -153,7 +153,7 @@ class ProductController extends GetxController {
         'p_rating':'',
         'p_wishList':FieldValue.arrayUnion([]),
         'p_images':FieldValue.arrayUnion(pImagesLinks),
-        'p_name': Get.find<HomeController>().userName,
+        'p_name': nameController.text.toString(),
         'p_seller':Get.find<HomeController>().shopName,
       });
       isLoading(false);
